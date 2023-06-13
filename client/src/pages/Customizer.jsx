@@ -50,6 +50,23 @@ const Customizer = () => {
     }
   };
 
+  const handleSubmit = async (type) => {
+    if(!prompt) return alert("Please enter a prompt");
+
+    try {
+      setGeneratingImg(true);
+
+      const response = await fetch('http://localhost:8080/api/v1/dalle', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          prompt,
+        })
+      })
+  
+
   const handleDecals = (type, result) => {
     const decalType = DecalTypes[type];
 
