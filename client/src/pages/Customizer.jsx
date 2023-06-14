@@ -56,7 +56,7 @@ const Customizer = () => {
     try {
       setGeneratingImg(true);
 
-      const response = await fetch('https://ai3js.onrender.com/api/v1/dalle', {
+      const response = await fetch('http://localhost:8080/api/v1/dalle', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -66,7 +66,11 @@ const Customizer = () => {
         }),
       });
 
+      console.log('Response status:', response.status);
+      console.log('Full response:', response);
+
       const data = await response.json();
+      console.log('Received response:', data);
 
       handleDecals(type, `data:image/png;base64,${data.photo}`);
     } catch (error) {
@@ -79,6 +83,7 @@ const Customizer = () => {
 
   const handleDecals = (type, result) => {
     const decalType = DecalTypes[type];
+    console.log('Decal type:', decalType);
 
     state[decalType.stateProperty] = result;
 
