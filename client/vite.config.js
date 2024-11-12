@@ -7,8 +7,11 @@ export default defineConfig({
   base: '/',
   resolve: {
     alias: {
-      '@react-three/drei': path.resolve('node_modules/@react-three/drei'),
+      '@react-three/drei': require.resolve('@react-three/drei'),
     },
+  },
+  optimizeDeps: {
+    include: ['@react-three/drei'],
   },
   ssr: {
     noExternal: ['@react-three/drei'],
