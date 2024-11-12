@@ -5,7 +5,9 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   base: '/',
-  alias: {
-    '@react-three/drei': '@react-three/drei/dist/index.cjs.js',
+  resolve: {
+    alias: {
+      '@react-three/drei': path.resolve('node_modules/@react-three/drei'),
+    },
   },
 });
