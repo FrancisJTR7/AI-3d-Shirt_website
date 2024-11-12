@@ -1,11 +1,10 @@
-import path from 'path';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import { fileURLToPath } from 'url'; // Ensure this line is present
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const __filename = fileURLToPath(import.meta.url);
+const __filename = require('url').fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-export default {
+module.exports = {
   entry: './src/main.jsx', // Adjust the entry point if needed
   output: {
     path: path.resolve(__dirname, 'dist'), // Ensure only one `path.resolve` here
