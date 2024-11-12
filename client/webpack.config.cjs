@@ -1,13 +1,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const __filename = require('url').fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 module.exports = {
   entry: './src/main.jsx', // Adjust the entry point if needed
   output: {
-    path: path.resolve(__dirname, 'dist'), // Ensure only one `path.resolve` here
+    path: path.resolve(__dirname, 'dist'), // Uses __dirname directly
     filename: 'bundle.js',
     clean: true,
   },
@@ -27,7 +24,7 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(png|jpg|jpeg|gif)$/i, // Add this rule for images
+        test: /\.(png|jpg|jpeg|gif)$/i, // Rule for images
         type: 'asset/resource',
       },
     ],
