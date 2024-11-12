@@ -10,4 +10,7 @@ export default defineConfig({
       '@react-three/drei': path.resolve('node_modules/@react-three/drei'),
     },
   },
+  ssr: {
+    noExternal: ['@react-three/drei'],
+  },
 });
